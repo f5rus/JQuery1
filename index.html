@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery-1.6.2.min.js"></script>
+        <style type="text/css">
+            #pic{
+                display: none;
+            }
+            .g2 figure{
+                float: left;
+                padding: 0px;
+                margin: 0px;
+               
+            }
+            img{
+                width: 200px;
+                height: 150px;
+            }
+            .no_disk{
+                 border: 2px solid appworkspace;
+            }
+            .disk{
+                border: 2px solid red;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>JQuery</h1>
+        </header>
+        <section>
+            <figure>
+                <figcaption id="butt">Нажми</figcaption>
+                <img id="pic" src="moto3.jpg" alt="мото">
+                <script>                   
+                    $(document).ready(function(){
+                       $("#butt").click(function(){
+                          $("#pic").fadeIn(1000);
+                           $("#pic").slideToggle("slow");
+                       }); 
+                    });                 
+
+                </script>
+            </figure>
+        </section>
+        <section class = "g2" >
+            <figure>
+                <img src="moto1.jpg" alt="мото">
+                
+            </figure>
+             <figure>
+                <img src="moto2.jpg" alt="мото">
+                <figcaption>                   
+                </figcaption>
+            </figure>
+             <figure>
+                <img src="moto3.jpg" alt="мото">
+                <figcaption>                   
+                </figcaption>
+            </figure>
+             <figure>
+                <img src="moto4.jpg" alt="мото">
+                <figcaption>                   
+                </figcaption>
+            </figure>
+            <script>
+                var discount; 
+                $(".g2 figure").click(function(){
+                    discount= Math.floor((Math.random()*5)+5);                    
+                    $(".g2 figcaption").remove(); 
+                    $(this).append("<figcaption>Скидка: "+discount+"%</figcaption>");
+                    $(".g2 figure").unbind("click");
+                    $(this).addClass("disk");
+                    $(this).removeClass("no_disk");
+                });
+            </script>
+        </section>
+        
+    </body>
+</html>
